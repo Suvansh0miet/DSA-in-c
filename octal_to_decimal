@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int octal, decimal = 0, i = 0;
+
+    printf("Enter an octal number: ");
+    scanf("%d", &octal);
+
+    int temp = octal;
+    while (temp != 0) {
+        int digit = temp % 10;
+        decimal += digit * pow(8, i);
+        temp /= 10;
+        i++;
+    }
+
+    printf("Octal: %d\n", octal);
+    printf("Decimal: %d\n", decimal);
+
+    return 0;
+}
