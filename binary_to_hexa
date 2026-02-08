@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int binaryToDecimal(int number) {
+    int decnum = 0;
+    int base = 1;
+    while (number != 0) {
+        int rem = number % 10;
+        decnum += rem * base;
+        base = base * 2;
+        number = number / 10;
+    }
+    return decnum;
+}
+
+int main() {
+    int num;
+    printf("Enter binary number: ");
+    scanf("%d", &num);
+
+    char hexa[100];
+    int i = 0;
+
+    if (num == 0) {
+        printf("0");
+        return 0;
+    }
+
+    while (num != 0) {
+        int rem = num % 10000;
+        int d = binaryToDecimal(rem);
+
+        if (d < 10) {
+            hexa[i] = d + 48; 
+        } else {
+            hexa[i] = d + 55; 
+        }
+        i++;
+        num = num / 10000;
+    }
+
+    printf("Hexadecimal: ");
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%c", hexa[j]);
+    }
+
+    return 0;
+}
