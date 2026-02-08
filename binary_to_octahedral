@@ -1,0 +1,29 @@
+#include<stdio.h>
+int binary(int number){
+    int decnum =0;
+int base =1;
+while(number!=0){
+    int rem = number%10;
+    decnum += rem*base;
+    base = base*2;
+    number = number/10;
+}
+return decnum;              
+}
+
+int main(){
+    int num;
+    printf("enter number: ");
+    scanf("%d", &num);
+    int oct =0;
+    int palce =1;
+    while(num!=0){
+        int rem = num%1000;
+        int d = binary(rem);
+        oct += d*palce;
+        palce = palce*10;
+        num = num/1000;
+    }
+    printf("%d", oct);
+    return 0;
+}
